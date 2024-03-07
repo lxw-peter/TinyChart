@@ -20,3 +20,11 @@ export function applyAttributes(element, attributes) {
     element.setAttribute(kebabCaseKey, value);
   }
 }
+
+export function applyTransform(element, transform) {
+  // 现获取旧 transform 属性值；
+  const oldTransform = element.getAttribute('transform') || '';
+  const prefix = oldTransform ? `${oldTransform} ` : '';
+  // 新旧拼接后设置为新值
+  element.setAttribute('transform', `${prefix}${transform}`);
+}
